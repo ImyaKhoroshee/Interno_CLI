@@ -1,35 +1,16 @@
 <template>
   <main class="main">
     <section class="banner center">
-      <div class="banner-box">
-        <img src="../assets/intro-image.png" alt="living-room" class="banner__image" />
-        <div class="banner__text">
-          <h2 class="banner__heading">Let Your Home Be Unique</h2>
-          <p class="banner__paragraph">
-            There are many variations of the passages of lorem Ipsum fromavailable,
-            majority.
-          </p>
-          <button class="banner__button">
-            <a href="#" class="banner__button-link">Get Started</a
-            ><svg
-              class="banner__button-svg"
-              width="19"
-              height="17"
-              viewBox="0 0 19 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2 8.43542L15.7232 8.29857M10.6182 1.91138L17.1412 8.43436L10.4868 15.0887"
-                stroke="#CDA274"
-                stroke-width="2"
-                stroke-linecap="square"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
+      <Intro
+        :banner="banner"
+        v-for="banner in homeBanner"
+        :key="banner.id"
+        :src="banner.src"
+        :alt="banner.alt"
+        :heading="banner.heading"
+        :paragraph="banner.paragraph"
+        :buttonText="buttonText"
+      />
     </section>
     <section class="projects center" id="projects">
       <h2 class="projects__heading">Follow Our Projects</h2>
@@ -38,150 +19,16 @@
         content of page lookings at its layouts points.
       </p>
       <div class="projects__images">
-        <div class="projects__card">
-          <img
-            src="../assets/project_1.jpg"
-            alt="interio"
-            class="projects__card-image projects__card-image_1"
-          />
-          <div class="projects__card-content">
-            <div class="projects__card-textbox">
-              <h3 class="projects__card-title">Modern Kitchan</h3>
-              <ul class="projects__card-list">
-                <li class="projects__card-list-item projects__card-list-item_slash">
-                  Decor
-                </li>
-                <li class="projects__card-list-item">Artchitecture</li>
-              </ul>
-            </div>
-            <a href="#" class="projects__card-arrow-box">
-              <svg
-                class="projects__card-arrow"
-                width="10"
-                height="20"
-                viewBox="0 0 10 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 19L9 10L1 1"
-                  stroke="#292F36"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div class="projects__card">
-          <img
-            src="../assets/project_2.jpg"
-            alt="interio"
-            class="projects__card-image projects__card-image_2"
-          />
-          <div class="projects__card-content">
-            <div class="projects__card-textbox">
-              <h3 class="projects__card-title">Modern Kitchan</h3>
-              <ul class="projects__card-list">
-                <li class="projects__card-list-item projects__card-list-item_slash">
-                  Decor
-                </li>
-                <li class="projects__card-list-item">Artchitecture</li>
-              </ul>
-            </div>
-            <a href="#" class="projects__card-arrow-box">
-              <svg
-                class="projects__card-arrow"
-                width="10"
-                height="20"
-                viewBox="0 0 10 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 19L9 10L1 1"
-                  stroke="#292F36"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div class="projects__card">
-          <img
-            src="../assets/project_3.jpg"
-            alt="interio"
-            class="projects__card-image projects__card-image_3"
-          />
-          <div class="projects__card-content">
-            <div class="projects__card-textbox projects__card-textbox_bottom">
-              <h3 class="projects__card-title">Modern Kitchan</h3>
-              <ul class="projects__card-list">
-                <li class="projects__card-list-item projects__card-list-item_slash">
-                  Decor
-                </li>
-                <li class="projects__card-list-item">Artchitecture</li>
-              </ul>
-            </div>
-            <a href="#" class="projects__card-arrow-box">
-              <svg
-                class="projects__card-arrow"
-                width="10"
-                height="20"
-                viewBox="0 0 10 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 19L9 10L1 1"
-                  stroke="#292F36"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div class="projects__card">
-          <img
-            src="../assets/project_4.jpg"
-            alt="interio"
-            class="projects__card-image projects__card-image_4"
-          />
-          <div class="projects__card-content">
-            <div class="projects__card-textbox projects__card-textbox_bottom">
-              <h3 class="projects__card-title">Modern Kitchan</h3>
-              <ul class="projects__card-list">
-                <li class="projects__card-list-item projects__card-list-item_slash">
-                  Decor
-                </li>
-                <li class="projects__card-list-item">Artchitecture</li>
-              </ul>
-            </div>
-            <a href="#" class="projects__card-arrow-box">
-              <svg
-                class="projects__card-arrow"
-                width="10"
-                height="20"
-                viewBox="0 0 10 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 19L9 10L1 1"
-                  stroke="#292F36"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
+        <ProjectCard
+          :project="project"
+          v-for="project in projects"
+          :key="project.id"
+          :src="project.src"
+          :alt="project.alt"
+          :title="project.title"
+          :subject="project.subject"
+          :field="project.field"
+        />
       </div>
     </section>
     <div class="counter">
@@ -214,83 +61,20 @@
         content of a page when lookings at its layouts the points of using.
       </p>
       <div class="blog__cardbox-container">
-        <div class="blog__cardbox">
-          <img src="../assets/blog_1.png" alt="interior" class="blog__image" />
-          <h3 class="blog__head">Let’s Get Solution For Building Construction Work</h3>
-          <div class="blog__data-arrow-box">
-            <p class="blog__date">26 December,2022</p>
-            <router-link to="/blog" class="blog__arrowbox">
-              <svg
-                width="9"
-                height="16"
-                viewBox="0 0 9 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1.77144 14.9527L7.71429 8.267L1.77144 1.58128"
-                  stroke="#292F36"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </router-link>
-          </div>
-          <a href="./pages/blog_details.html" class="blog__button">Kitchan Design</a>
-        </div>
-        <div class="blog__cardbox">
-          <img src="../assets/blog_2.png" alt="interior" class="blog__image" />
-          <h3 class="blog__head">
-            Low Cost Latest Invented Interior Designing Ideas.&nbsp;&nbsp;&nbsp;&nbsp;
-          </h3>
-          <div class="blog__data-arrow-box">
-            <p class="blog__date">22 December,2022</p>
-            <router-link to="/blog" class="blog__arrowbox">
-              <svg
-                width="9"
-                height="16"
-                viewBox="0 0 9 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1.77144 14.9527L7.71429 8.267L1.77144 1.58128"
-                  stroke="#292F36"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </router-link>
-          </div>
-          <a href="#" class="blog__button">Living Design</a>
-        </div>
-        <div class="blog__cardbox">
-          <img src="../assets/blog_3.png" alt="interior" class="blog__image" />
-          <h3 class="blog__head">Best For Any Office & Business Interior Solution</h3>
-          <div class="blog__data-arrow-box">
-            <p class="blog__date">25 December,2022</p>
-            <router-link to="/blog" class="blog__arrowbox">
-              <svg
-                width="9"
-                height="16"
-                viewBox="0 0 9 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1.77144 14.9527L7.71429 8.267L1.77144 1.58128"
-                  stroke="#292F36"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </router-link>
-          </div>
-          <a href="#" class="blog__button">Interior Design</a>
-        </div>
+        <ArticleCard
+          :article="article"
+          v-for="article in cardArticles"
+          :key="article.id"
+          :src="article.src"
+          :alt="article.alt"
+          :heading="article.heading"
+          :date="article.date"
+          :buttonText="buttonText"
+        >
+          <router-link to="/blog-details" class="blog__button">{{
+            article.buttonText
+          }}</router-link>
+        </ArticleCard>
       </div>
     </section>
   </main>
@@ -299,12 +83,98 @@
 <script>
 // @ is an alias to /src
 
-// import Компонент from '@/components/Компонент.vue'
+import Intro from "@/components/Intro.vue";
+import ProjectCard from "@/components/ProjectCard.vue";
+import ArticleCard from "@/components/ArticleCard.vue";
 
 export default {
   name: "HomeView",
   components: {
-    // Компонент,
+    Intro,
+    ProjectCard,
+    ArticleCard,
+  },
+  data() {
+    return {
+      buttonText: "Get Started",
+      homeBanner: [
+        {
+          id: "homebanner",
+          src: require("../assets/intro-image.png"),
+          alt: "living-room",
+          heading: "Let Your Home Be Unique",
+          paragraph:
+            "There are many variations of the passages of lorem Ipsum fromavailable, majority.",
+        },
+      ],
+      projects: [
+        {
+          id: "productcard1",
+          src: require("../assets/project-1.png"),
+          alt: "interio",
+          title: "Modern Kitchen",
+          subject: "Decor",
+          field: "Artchitecture",
+          class: "projects__card-image_1",
+        },
+        {
+          id: "productcard2",
+          src: require("../assets/project-2.png"),
+          alt: "interio",
+          title: "Modern Kitchen",
+          subject: "Decor",
+          field: "Artchitecture",
+          class: "projects__card-image_2",
+        },
+        {
+          id: "productcard3",
+          src: require("../assets/project-3.png"),
+          alt: "interio",
+          title: "Modern Kitchen",
+          subject: "Decor",
+          field: "Artchitecture",
+          class: "projects__card-image_3",
+          classbottom: "projects__card-textbox_bottom",
+        },
+        {
+          id: "productcard4",
+          src: require("../assets/project-4.png"),
+          alt: "interio",
+          title: "Modern Kitchen",
+          subject: "Decor",
+          field: "Artchitecture",
+          class: "projects__card-image_4",
+          classbottom: "projects__card-textbox_bottom",
+        },
+      ],
+      cardArticles: [
+        {
+          id: "article-card-1",
+          src: require("../assets/blog_1.png"),
+          alt: "interior",
+          heading: "Let’s Get Solution For Building Construction Work",
+          date: "26 December,2022",
+          buttonText: "Kitchen Design",
+        },
+        {
+          id: "article-card-1",
+          src: require("../assets/blog_1.png"),
+          alt: "interior",
+          heading: "Low Cost Latest Invented Interior Designing Ideas",
+          date: "22 December,2022",
+          buttonText: "Living Design",
+        },
+        {
+          id: "article-card-1",
+          src: require("../assets/blog_1.png"),
+          alt: "interior",
+          heading: "Best For Any Office & Business Interior Solution",
+          date: "25 December,2022",
+          buttonText: "Interior Design",
+        },
+      ],
+    };
   },
 };
 </script>
+<style scoped lang="scss"></style>

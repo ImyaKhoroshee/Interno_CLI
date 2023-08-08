@@ -27,7 +27,13 @@ const routes = [
     path: '/blog-details',
     name: 'blog-details',
     component: () => import('../views/BlogDetailsView.vue')
+  },
+  {
+    path: '/error',
+    name: 'error',
+    component: () => import('../views/404View.vue')
   }
+
 ]
 
 const router = createRouter({
