@@ -1,5 +1,5 @@
 <template>
-  <div class="banner-box">
+  <section class="banner-box">
     <img :src="banner.src" :alt="banner.alt" class="banner__image" />
     <div class="banner__text">
       <h2 class="banner__heading">{{ banner.heading }}</h2>
@@ -7,7 +7,7 @@
         {{ banner.paragraph }}
       </p>
       <Button class="banner__button">
-        <router-link to="/error" class="banner__button-link">{{ buttonText }}</router-link
+        <router-link to="button.link" class="banner__button-link">{{ buttonText }}</router-link
         ><svg
           class="banner__button-svg"
           width="19"
@@ -26,14 +26,14 @@
         </svg>
       </Button>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 import Button from "./Button.vue";
 
 export default {
-  name: "Intro",
+  name: "Banner",
   props: {
     banner: Object,
     buttonText: String,

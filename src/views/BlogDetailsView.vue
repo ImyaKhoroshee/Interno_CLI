@@ -6,23 +6,21 @@
 
     <div id="blogdetails" class="blog-details__box center">
       <div class="blog-details">
-        <BlogDetailsArticle
-          :article="article"
-          v-for="article in sortedArray"
-          :key="article.id"
-          :id="article.id"
-        />
+        <BlogDetailsArticle :article="article" v-for="article in sortedArray" />
       </div>
 
       <div class="blog-details__aside">
         <h3 class="blog-details__aside-title">{{ title }}</h3>
         <div class="blog-details__buttons">
-          <BlogDetailsButton
+          <Button
+            class="blog-details__button"
+            @click="filters"
             :button="button"
             v-for="button in buttons"
-            @change="sortArticles"
-            @click="filters"
-          />
+            :id="button.id"
+          >
+            {{ button.text }}
+          </Button>
         </div>
       </div>
     </div>
@@ -30,13 +28,13 @@
 </template>
 <script>
 import BlogDetailsArticle from "@/components/BlogDetailsArticle.vue";
-import BlogDetailsButton from "@/components/BlogDetailsButton.vue";
+import Button from "@/components/Button.vue";
 
 export default {
   name: "BlogDetailsView",
   components: {
     BlogDetailsArticle,
-    BlogDetailsButton,
+    Button,
   },
   data() {
     return {
@@ -51,7 +49,7 @@ export default {
             "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don’t look even slightly believable.",
           secondpargth:
             "Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
-          src: require("../assets/blog_kitchen.png"),
+          src: require("../assets/kitchen-1.jpg"),
           alt: "photo",
           quote: "The details are not the details. They make the design.",
           subtitle: "Design sprints are great",
@@ -62,7 +60,7 @@ export default {
           thirdnumber: "3",
           fourthpargth:
             "Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered.",
-          secondsrc: require("../assets/blog_kitchen_bottom.jpg"),
+          secondsrc: require("../assets/kitchen-2.jpg"),
         },
       ],
       articles: [
@@ -75,7 +73,7 @@ export default {
             "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don’t look even slightly believable.",
           secondpargth:
             "Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
-          src: require("../assets/blog_kitchen.png"),
+          src: require("../assets/kitchen-1.jpg"),
           alt: "photo",
           quote: "The details are not the details. They make the design.",
           subtitle: "Design sprints are great",
@@ -86,7 +84,7 @@ export default {
           thirdnumber: "3",
           fourthpargth:
             "Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered.",
-          secondsrc: require("../assets/blog_kitchen_bottom.jpg"),
+          secondsrc: require("../assets/kitchen-2.jpg"),
         },
         {
           id: "bedroom",
@@ -97,7 +95,7 @@ export default {
             "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don t look even slightly believable.",
           secondpargth:
             "Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
-          src: require("../assets/blog_bedroom.jpeg"),
+          src: require("../assets/bedroom-1.jpg"),
           alt: "photo",
           quote: "The details are not the details. They make the design.",
           subtitle: "Design sprints are great",
@@ -108,7 +106,7 @@ export default {
           thirdnumber: "3",
           fourthpargth:
             "Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered.",
-          secondsrc: require("../assets/bedroom.jpeg"),
+          secondsrc: require("../assets/bedroom-2.jpg"),
         },
         {
           id: "building",
@@ -120,7 +118,7 @@ export default {
             "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don t look even slightly believable.",
           secondpargth:
             "Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
-          src: require("../assets/blog_building.jpeg"),
+          src: require("../assets/building-1.jpg"),
           alt: "photo",
           quote:
             "Good buildings come from good people, and all problems are solved by good design.",
@@ -132,7 +130,7 @@ export default {
           thirdnumber: "3",
           fourthpargth:
             "Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered.",
-          secondsrc: require("../assets/blog_building_2.jpeg"),
+          secondsrc: require("../assets/building-2.jpg"),
         },
         {
           id: "architecture",
@@ -144,7 +142,7 @@ export default {
             "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don t look even slightly believable.",
           secondpargth:
             "Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
-          src: require("../assets/blog_architecture.jpeg"),
+          src: require("../assets/architecture-1.jpg"),
           alt: "photo",
           quote: "Architecture is a visual art, and the buildings speak for themselves.",
           subtitle:
@@ -156,7 +154,7 @@ export default {
           thirdnumber: "3",
           fourthpargth:
             "Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered.",
-          secondsrc: require("../assets/blog_architecture_2.jpeg"),
+          secondsrc: require("../assets/architecture-2.jpg"),
         },
         {
           id: "kitchen-planning",
@@ -167,7 +165,7 @@ export default {
             "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don t look even slightly believable.",
           secondpargth:
             "Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
-          src: require("../assets/kitchen_planning.jpeg"),
+          src: require("../assets/planning-1.jpg"),
           alt: "photo",
           quote: "The kitchen is the heart of the home.",
           subtitle:
@@ -179,7 +177,7 @@ export default {
           thirdnumber: "3",
           fourthpargth:
             "Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered.",
-          secondsrc: require("../assets/kitchen_planning_2.jpeg"),
+          secondsrc: require("../assets/planning-2.jpg"),
         },
       ],
 
@@ -193,21 +191,39 @@ export default {
     };
   },
   methods: {
-    sortArticles(e) {
-      console.log(e.target);
-      if (document.querySelector(".blog-details__button-active") !== null) {
-        document
-          .querySelector(".blog-details__button-active")
-          .classList.remove("blog-details__button-active");
-      }
-      const divButton = e.target.closest(".blog-details__button");
-      divButton.classList.add("blog-details__button-active");
-    },
     filters(e) {
-      this.sortedArray = this.articles.filter(
-        (article) => article.id === e.target.dataset.id
-      );
+      if (document.querySelector(".button-active") !== null) {
+        document.querySelector(".button-active").classList.remove("button-active");
+      }
+      e.target.classList.add("button-active");
+      this.sortedArray = this.articles.filter((article) => article.id === e.target.id);
     },
   },
 };
 </script>
+
+<style scoped lang="scss">
+.button {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 30px;
+  color: #292f36;
+  text-align: center;
+  font-family: Jost;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  letter-spacing: 0.36px;
+  border-radius: 10px;
+  background: #f4f0ec;
+  border: none;
+  &-active {
+  background: #292f36;
+  color: #ffffff;
+}
+}
+
+</style>

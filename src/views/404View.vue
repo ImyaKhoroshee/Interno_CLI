@@ -1,14 +1,9 @@
 <template>
   <main class="main">
-    <section class="banner">
-      <Intro
+    <section class="banner-error">
+      <Banner
         v-for="banner in errorBanner"
         :banner="banner"
-        :key="banner.id"
-        :src="banner.src"
-        :alt="banner.alt"
-        :heading="banner.heading"
-        :paragraph="banner.paragraph"
         :buttonText="errorButtonText"
       />
     </section>
@@ -16,12 +11,12 @@
 </template>
 
 <script>
-import Intro from "@/components/Intro.vue";
+import Banner from "@/components/Banner.vue";
 
 export default {
   name: "404View",
   components: {
-    Intro,
+    Banner,
   },
   data() {
     return {
@@ -33,6 +28,7 @@ export default {
           alt: "destroyed-flat",
           heading: "404",
           paragraph: "We are sorry, but the page you requested was not found",
+          link: "/",
         },
       ],
     };
@@ -40,33 +36,40 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-// .banner__button {
-//   display: flex;
-//   padding: 23px 47px 24px 48px;
-//   flex-direction: row;
-//   align-items: center;
-//   gap: 7px;
-//   border: none;
-//   border-radius: 18px;
-//   background: #292f36;
-//   box-shadow: 0px 10px 20px 0px rgba(192, 192, 192, 0.35);
-//   transition: 0.3s;
-//   &:hover {
-//     background: #cda274;
-//   }
-// }
-// .banner__button-link {
-//   color: #fff;
-//   text-align: center;
-//   font-family: Jost;
-//   font-size: 18px;
-//   font-style: normal;
-//   font-weight: 600;
-//   letter-spacing: 1.25px;
-// }
+.banner-error {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-left: 360px;
+  padding-bottom: 100px;
+}
+.banner-error :deep(.banner-box) {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 81px;
+}
 
-// .banner__button:hover .banner__button-svg path {
-//   transition: 0.3s;
-//   stroke: #292f36;
-// }
+.banner-error :deep(.banner__text) {
+  padding-top: 272px;
+}
+.banner-error :deep(.banner__image) {
+  border-bottom-left-radius: 37%;
+}
+.banner-error :deep(.banner__heading) {
+  color: #cda274;
+  font-family: DM Serif Display;
+  font-size: 250px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 97%;
+}
+.banner-error :deep(.banner__paragraph) {
+  margin-bottom: 41px;
+  color: #292f36;
+  font-family: DM Serif Display;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.35px;
+  line-height: 51px;
+}
 </style>

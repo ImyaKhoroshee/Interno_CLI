@@ -162,31 +162,31 @@
         gap: 10px;
         flex-wrap: wrap;
     }
-    &__button {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 10px;
-        padding: 10px 30px;
-        color: #292f36;
-        text-align: center;
-        font-family: Jost;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 125%;
-        letter-spacing: 0.36px;
-        border-radius: 10px;
-        background: #f4f0ec;
-        border: none;
-        & input[type="radio"] {
-            display: none;
-        }
-    }
-    &__button-active {
-        background: #292f36;
-        color: #ffffff;
-    }
+    // &__button {
+    //     display: flex;
+    //     flex-direction: row;
+    //     flex-wrap: wrap;
+    //     gap: 10px;
+    //     padding: 10px 30px;
+    //     color: #292f36;
+    //     text-align: center;
+    //     font-family: Jost;
+    //     font-size: 18px;
+    //     font-style: normal;
+    //     font-weight: 400;
+    //     line-height: 125%;
+    //     letter-spacing: 0.36px;
+    //     border-radius: 10px;
+    //     background: #f4f0ec;
+    //     border: none;
+    //     // & input[type="radio"] {
+    //     //     display: none;
+    //     // }
+    // }
+    // &__button-active {
+    //     background: #292f36;
+    //     color: #ffffff;
+    // }
     &__aside-title {
         color: #292f36;
         font-family: DM Serif Display;

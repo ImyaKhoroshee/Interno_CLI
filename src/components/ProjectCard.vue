@@ -1,5 +1,5 @@
 <template>
-  <div class="projects__card">
+  <div class="projects__card" :data-id="project.dataid">
     <img
       :src="project.src"
       :alt="project.alt"
@@ -35,6 +35,7 @@
         </svg>
       </router-link>
     </div>
+    <slot class="star-image" />
   </div>
 </template>
 

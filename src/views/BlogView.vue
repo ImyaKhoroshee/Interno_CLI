@@ -1,56 +1,26 @@
 <template>
   <main class="blog-main">
-    <section class="intro">
-      <div class="intro__title">
-        <h2 class="intro__heading">Articles & News</h2>
-        <div class="intro__subhead-box">
-          <router-link to="/" class="intro__subhead-box-item">Home</router-link>
-          <router-link to="/blog" class="intro__subhead-box-item">Blog</router-link>
-        </div>
-      </div>
-    </section>
+    <IntroBackground class="intro">
+      <IntroText class="intro-blog__text" :text="text" v-for="text in blogTexts" />
+    </IntroBackground>
+
     <section class="blog-post center">
       <h2 class="blog-post__title">Latest Post</h2>
       <div class="blog-post__latest-post">
-        <div class="blog-post__latest-post-subbox">
-          <img
-            class="blog-post__latest-post-image"
-            src="../assets/latest_post_image.jpg"
-            alt="kitchen"
-          />
-          <article class="blog-post__latest-post-text">
-            <h3 class="blog-post__latest-post-head">
-              Low Cost Latest Invented Interior Designing Ideas
-            </h3>
+        <ArticleCard
+          class="blog-post__latest-post-subbox"
+          :article="article"
+          v-for="article in blogpostArticles"
+        >
+          <template #paragraphs>
             <p class="blog-post__latest-post-prgth blog-post__latest-post-prgth_1">
-              Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim
-              maximus.posuere in.Contrary to popular belief.
+              {{ article.paragraphOne }}
             </p>
             <p class="blog-post__latest-post-prgth blog-post__latest-post-prgth_2">
-              Lorem Ipsum is not simply random text. It has roots in a piece of classica.
-            </p>
-            <div class="blog__data-arrow-box blog-post__data-arrow-box">
-              <p class="blog__date">26 December,2022</p>
-              <a href="#" class="blog__arrowbox">
-                <svg
-                  width="9"
-                  height="16"
-                  viewBox="0 0 9 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1.77144 14.9527L7.71429 8.267L1.77144 1.58128"
-                    stroke="#292F36"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-            </div>
-          </article>
-        </div>
+              {{ article.paragraphTwo }}
+            </p></template
+          >
+        </ArticleCard>
       </div>
     </section>
     <section class="articles center">
@@ -59,7 +29,14 @@
         class="blog__cardbox-container articles__blog-cardbox-container"
         id="cardbox-container"
       >
-        <div class="blog__cardbox" v-for="article in articlesData" :key="article.id">
+        <ArticleCard :article="article" v-for="article in cardArticles">
+          <template #button>
+            <router-link to="/blog-details" class="blog__button">{{
+              article.buttonText
+            }}</router-link></template
+          >
+        </ArticleCard>
+        <!-- <div class="blog__cardbox" v-for="article in articlesData" :key="article.id">
           <img :src="article.src" :alt="article.alt" class="blog__image" />
           <h3 class="blog__head">{{ article.title }}</h3>
           <div class="blog__data-arrow-box">
@@ -83,29 +60,10 @@
             </router-link>
           </div>
           <a href="#" class="blog__button">{{ article.button }}</a>
-        </div>
+        </div> -->
       </div>
       <div class="articles__pagination">
-        <span class="articles__pagination-item">01</span>
-        <span class="articles__pagination-item">02</span>
-        <span class="articles__pagination-item">03</span>
-        <span class="articles__pagination-item"
-          ><svg
-            width="9"
-            height="16"
-            viewBox="0 0 9 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1.55714 15L7.5 8.31429L1.55714 1.62857"
-              stroke="#292F36"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </span>
+        <Pagination />
       </div>
     </section>
   </main>
@@ -113,15 +71,71 @@
 <script>
 // @ is an alias to /src
 
-// import Компонент from '@/components/Компонент.vue'
+import IntroBackground from "@/components/IntroBackground.vue";
+import IntroText from "@/components/IntroText.vue";
+import ArticleCard from "@/components/ArticleCard.vue";
+import Pagination from "@/components/Pagination.vue";
 
 export default {
   name: "BlogView",
   components: {
-    // Компонент,
+    IntroBackground,
+    IntroText,
+    ArticleCard,
+    Pagination,
   },
   data() {
     return {
+      cardArticles: [
+        {
+          id: "article-card-1",
+          src: require("../assets/blog_1.png"),
+          alt: "interior",
+          heading: "Let’s Get Solution For Building Construction Work",
+          date: "26 December,2022",
+          buttonText: "Kitchen Design",
+        },
+        {
+          id: "article-card-2",
+          src: require("../assets/blog_2.png"),
+          alt: "interior",
+          heading: "Low Cost Latest Invented Interior Designing Ideas",
+          date: "22 December,2022",
+          buttonText: "Living Design",
+        },
+        {
+          id: "article-card-2",
+          src: require("../assets/blog_3.png"),
+          alt: "interior",
+          heading: "Best For Any Office & Business Interior Solution",
+          date: "25 December,2022",
+          buttonText: "Interior Design",
+        },
+      ],
+      blogTexts: [
+        {
+          id: "blogText",
+          title: "Articles & News",
+          subheadOne: "Home",
+          subheadTwo: "Blog",
+          routerlink: "/blog",
+        },
+      ],
+      blogpostArticles: [
+        {
+          id: "blopost-card-1",
+          src: require("../assets/latest_post_image.png"),
+          alt: "kitchen",
+          heading: "Low Cost Latest Invented Interior Designing Ideas",
+          paragraphOne:
+            "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim maximus.posuere in.Contrary to popular belief.",
+          paragraphTwo:
+            "Lorem Ipsum is not simply random text. It has roots in a piece of classica.",
+          date: "26 December,2022",
+          class: "blog-post__latest-post-text",
+          head: "blog-post__latest-post-head",
+        },
+      ],
       articlesData: [
         {
           id: 1,
@@ -176,3 +190,13 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+.blog-post__latest-post-subbox :deep(.blog-post__latest-post-head) {
+  width: 490px;
+}
+.articles__blog-cardbox-container :deep(.blog-post__latest-post-head) {
+  width: 342px;
+  margin-bottom: 52px;
+}
+</style>
