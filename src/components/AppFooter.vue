@@ -38,7 +38,7 @@
     </div>
     <div class="footer__middle">
       <h4 class="footer__nav">Pages</h4>
-      <Navigation />
+      <Navigation class="footer__navlist" />
     </div>
     <div class="footer__absent-service"></div>
     <div class="footer__right">
@@ -77,10 +77,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.navlist {
+.footer__navlist {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   gap: 32px;
 }
 .footer__middle :deep(.navlist__item-link) {
@@ -105,5 +105,8 @@ export default {
   font-weight: 400;
   line-height: 125%;
   margin-bottom: 18px;
+}
+.footer__left :deep(.logo__icon) {
+  margin-top: 10px;
 }
 </style>

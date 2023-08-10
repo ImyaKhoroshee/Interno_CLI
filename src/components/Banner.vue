@@ -7,7 +7,7 @@
         {{ banner.paragraph }}
       </p>
       <Button class="banner__button">
-        <router-link to="button.link" class="banner__button-link">{{ buttonText }}</router-link
+        <router-link :to="link" class="banner__button-link">{{ buttonText }}</router-link
         ><svg
           class="banner__button-svg"
           width="19"
@@ -37,6 +37,7 @@ export default {
   props: {
     banner: Object,
     buttonText: String,
+    link: String,
   },
   components: {
     Button,

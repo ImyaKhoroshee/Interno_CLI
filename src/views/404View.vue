@@ -5,6 +5,7 @@
         v-for="banner in errorBanner"
         :banner="banner"
         :buttonText="errorButtonText"
+        :link="link"
       />
     </section>
   </main>
@@ -20,6 +21,7 @@ export default {
   },
   data() {
     return {
+      link: "/",
       errorButtonText: "Back To Home",
       errorBanner: [
         {
@@ -28,7 +30,6 @@ export default {
           alt: "destroyed-flat",
           heading: "404",
           paragraph: "We are sorry, but the page you requested was not found",
-          link: "/",
         },
       ],
     };

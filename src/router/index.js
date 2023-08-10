@@ -29,7 +29,7 @@ const routes = [
     component: () => import('../views/BlogDetailsView.vue')
   },
   {
-    path: '/error',
+    path: '/:CatchAll(.*)',
     name: 'error',
     component: () => import('../views/404View.vue')
   }

@@ -16,7 +16,6 @@ export default {
   components: {
     Navigation,
     Logo,
-    Logo,
   },
   props: {},
 };

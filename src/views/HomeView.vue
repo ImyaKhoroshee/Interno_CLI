@@ -1,7 +1,12 @@
 <template>
   <main class="main">
     <section class="banner center">
-      <Banner :banner="banner" v-for="banner in homeBanner" :buttonText="buttonText" />
+      <Banner
+        :banner="banner"
+        v-for="banner in homeBanner"
+        :buttonText="buttonText"
+        :link="link"
+      />
     </section>
     <section class="projects center" id="projects">
       <h2 class="projects__heading">Follow Our Projects</h2>
@@ -71,6 +76,7 @@ export default {
   },
   data() {
     return {
+      link: "/:CatchAll(.*)",
       buttonText: "Get Started",
       homeBanner: [
         {
@@ -80,7 +86,6 @@ export default {
           heading: "Let Your Home Be Unique",
           paragraph:
             "There are many variations of the passages of lorem Ipsum fromavailable, majority.",
-          link: "/error",
         },
       ],
       projects: [
