@@ -630,7 +630,7 @@ export default {
   }
 }
 .project-cards-box {
-  height: 3230px;
+  height: 3231px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

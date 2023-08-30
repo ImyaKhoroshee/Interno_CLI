@@ -1,7 +1,7 @@
 <template>
   <div class="slider-item">
-    <img :src="image.src" />
-    <slot />
+    <img :src="image.src" class="slider-image" />
+    <img class="slider-image__zoom" src="../assets/zoom-icon.png" alt="zoom-icon" />
   </div>
 </template>
 
@@ -18,4 +18,22 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.slider {
+  &-image {
+    border-radius: 70px;
+    transition: 0.5s;
+    &:hover {
+      transform: scale(2.2);
+    }
+  }
+  &-item {
+    position: relative;
+  }
+  &-image__zoom {
+    position: absolute;
+    cursor: pointer;
+    transition: 1s;
+  }
+}
+</style>

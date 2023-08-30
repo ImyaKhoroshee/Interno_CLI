@@ -2,20 +2,15 @@
   <main class="project-details-main">
     <IntroBackground class="project-details__background" />
     <article class="project-details__content center">
-      <h2 class="project-details__heading">Minimal Look Bedrooms</h2>
-      <p class="project-details__text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquamsem vitae turpis
-        dignissim maximus. Aliquam sollicitudin tellumassa, vbel maximus purus posuere in.
-        Dojrices gravida dignissim. Praesent at nibh in mi fringilla mattis. Phasellus ut
-        dolor odio. Aenean in the ipsum vel lectus bibendum commodo.
-      </p>
-      <p class="project-details__text">
-        In nec sem suscipit, convallis leo vitae, lacinia nibh. Cras amet tellus lectus.
-        Vivamus ipsum nunc, mattis quis nibh id, pellentesque arcu. Donec a pellentesque
-        Cras erat enim, gravida non ante vitae,elequis convallis elit, in viverra felis.
-        Donec ultrices tellus vitae iaculisvd porta. Proin tincidunt ligula id purus
-        porttitor.
-      </p>
+      <div class="project-details__content-wrap">
+        <h2 class="project-details__heading">{{ heading }}</h2>
+        <p class="project-details__text">
+          {{ firstPrgph }}
+        </p>
+        <p class="project-details__text">
+          {{ secondPrgph }}
+        </p>
+      </div>
     </article>
     <div class="slider center">
       <div class="slider__content">
@@ -27,20 +22,12 @@
             :key="image.id"
             :src="image.src"
             alt="bedroom"
-            class="slider-image"
-            ><img
-              :data-id="image.id"
-              class="slider-image__zoom"
-              src="../assets/zoom-icon.png"
-              alt="zoom-icon"
-              @click="zoom()"
-            />
-          </SliderImage>
+          />
         </div>
       </div>
     </div>
-    <div class="slider-pagination center">
-      <SliderPagination />
+    <div @click="changeImage" class="slider-pagination center">
+      <SliderPagination class="slider-pagination__button_active" />
       <SliderPagination />
       <SliderPagination />
     </div>
@@ -51,6 +38,7 @@
 import IntroBackground from "@/components/IntroBackground.vue";
 import SliderImage from "@/components/SliderImage.vue";
 import SliderPagination from "@/components/SliderPagination.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "ProjectDetailsView",
@@ -66,10 +54,46 @@ export default {
         { id: "slider-image_2", src: require("../assets/slider2.jpg") },
         { id: "slider-image_3", src: require("../assets/slider3.jpg") },
       ],
+      sliderCounter: 0,
     };
   },
   methods: {
-    zoom() {},
+    zoom() {
+      const image = document.querySelector(".slider-image");
+      image.scale(2.2);
+    },
+    changeImage() {
+      let sliderCounter = 0;
+
+      const sliderContentWidth = document.querySelector(".slider-wrapper");
+      const sliderPagination = document.querySelectorAll(
+        ".slider-pagination__button-wrapper"
+      );
+      function slideChange() {
+        sliderContentWidth.style.transform = `translateX(${-sliderCounter * 1226}px)`;
+      }
+
+      function changePaginationColor(position) {
+        if (document.querySelector(".slider-pagination__button_active") !== null) {
+          document
+            .querySelector(".slider-pagination__button_active")
+            .classList.remove("slider-pagination__button_active");
+        }
+        sliderPagination[position].firstElementChild.classList.add(
+          "slider-pagination__button_active"
+        );
+      }
+      sliderPagination.forEach((circle, position) => {
+        circle.addEventListener("click", () => {
+          sliderCounter = position;
+          slideChange();
+          changePaginationColor(sliderCounter);
+        });
+      });
+    },
+  },
+  computed: {
+    ...mapState(["heading", "firstPrgph", "secondPrgph"]),
   },
 };
 </script>
@@ -84,8 +108,12 @@ export default {
   }
   &__content {
     padding-top: 200px;
-    padding-left: 630px;
-    padding-right: 611px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-wrap {
+      max-width: 658px;
+    }
   }
   &__heading {
     color: #292f36;
@@ -115,7 +143,6 @@ export default {
   }
   &-item {
     margin-top: 61px;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,11 +153,6 @@ export default {
     gap: 25px;
     transition: all 1s;
   }
-  &-image__zoom {
-    position: absolute;
-    cursor: pointer;
-    transition: 1s;
-  }
   &-pagination {
     display: flex;
     flex-direction: row;
@@ -138,9 +160,10 @@ export default {
     justify-content: center;
     padding-top: 15px;
     padding-bottom: 170px;
+    cursor: pointer;
   }
 }
-.scale {
-  transform: scale(1, 1);
+.slider-image__zoom[data-v-81200830]:hover [data-v-388cd5fa] {
+  transform: scale(1.1);
 }
 </style>

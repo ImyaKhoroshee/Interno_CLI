@@ -25,9 +25,10 @@ export default {
   border-radius: 50%;
   border: 1px solid black;
   transition: 0.5s;
-  &:hover {
-    border: none;
-    background-color: black;
-  }
+}
+.slider-pagination__button_active {
+  border: none;
+  border-radius: 50%;
+  background-color: black;
 }
 </style>
