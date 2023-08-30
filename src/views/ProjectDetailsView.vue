@@ -58,10 +58,6 @@ export default {
     };
   },
   methods: {
-    zoom() {
-      const image = document.querySelector(".slider-image");
-      image.scale(2.2);
-    },
     changeImage() {
       let sliderCounter = 0;
 
