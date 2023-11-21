@@ -673,13 +673,13 @@ export default {
   .button {
     width: 219px;
   }
-}
-.project-content {
-  padding-top: 50px;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-.intro-project__text {
-  text-align: center;
+  .project-content {
+    padding-top: 50px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .intro-project__text {
+    text-align: center;
+  }
 }
 </style>
