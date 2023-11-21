@@ -66,7 +66,13 @@ export default {
         ".slider-pagination__button-wrapper"
       );
       function slideChange() {
-        sliderContentWidth.style.transform = `translateX(${-sliderCounter * 1226}px)`;
+        if (window.innerWidth >= 1440) {
+          sliderContentWidth.style.transform = `translateX(${-sliderCounter * 1226}px)`;
+        } else if (window.innerWidth >= 768) {
+          sliderContentWidth.style.transform = `translateX(${-sliderCounter * 767}px)`;
+        } else if (window.innerWidth >= 320) {
+          sliderContentWidth.style.transform = `translateX(${-sliderCounter * 432}px)`;
+        }
       }
 
       function changePaginationColor(position) {
@@ -148,6 +154,7 @@ export default {
     flex-direction: row;
     gap: 25px;
     transition: all 1s;
+    width: 3678px;
   }
   &-pagination {
     display: flex;
@@ -161,5 +168,29 @@ export default {
 }
 .slider-image__zoom[data-v-81200830]:hover [data-v-388cd5fa] {
   transform: scale(1.1);
+}
+@media (max-width: 1024px) {
+  .project-details__content {
+    padding-top: 100px;
+    text-align: center;
+  }
+  .slider__content {
+    width: 761px;
+  }
+  .slider-wrapper {
+    width: 2276px;
+  }
+}
+@media (max-width: 375px) {
+  .project-details__content {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+@media (max-width: 425px) {
+  .slider,
+  .slider-pagination {
+    display: none;
+  }
 }
 </style>

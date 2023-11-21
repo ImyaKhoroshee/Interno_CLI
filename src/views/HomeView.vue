@@ -22,7 +22,7 @@
       <div class="counter-wrapper center">
         <div class="counter__content-box counter__content-box_1">
           <p class="counter__content-digit">12</p>
-          <p class="counter__content-text">Years Of Experiance</p>
+          <p class="counter__content-text">Years of Experiance</p>
         </div>
         <div class="counter__line counter__line_1"></div>
         <div class="counter__content-box counter__content-box_2">
@@ -37,7 +37,7 @@
         <div class="counter__line counter__line_3"></div>
         <div class="counter__content-box">
           <p class="counter__content-digit">95</p>
-          <p class="counter__content-text">Happy CUstomers</p>
+          <p class="counter__content-text">Happy Customers</p>
         </div>
       </div>
     </div>
@@ -193,5 +193,63 @@ export default {
 .blog__cardbox-container :deep(.blog-post__latest-post-head) {
   width: 341px;
   margin-bottom: 50px;
+}
+@media (max-width: 1024px) {
+  .banner :deep(.banner__text) {
+    top: 90px;
+  }
+}
+@media (max-width: 767px) {
+  .banner :deep(.banner__text) {
+    left: 29px;
+    top: 61px;
+  }
+  .banner :deep(.banner__heading) {
+    font-size: 32px;
+  }
+  .banner :deep(.banner__paragraph) {
+    font-size: 18px;
+  }
+  .banner :deep(.banner__button) {
+    padding: 12px;
+    border-radius: 15px;
+  }
+  .banner :deep(.banner__button-link) {
+    font-size: 15px;
+  }
+  .counter-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .counter__line {
+    display: none;
+  }
+  .banner :deep(.banner__paragraph) {
+    display: none;
+  }
+  .banner :deep(.banner-box) {
+    padding: 8px;
+  }
+  .projects {
+    padding: 40px 8px;
+  }
+  .counter-wrapper {
+    padding: 15px 8px;
+  }
+  .blog {
+    padding: 65px 8px;
+  }
+}
+@media (max-width: 375px) {
+  .banner :deep(.banner__text) {
+    top: 42px;
+  }
+
+  .blog__cardbox-container :deep(.blog-post__latest-post-head) {
+    max-width: 230px;
+  }
+  .blog__button {
+    top: 180px;
+  }
 }
 </style>

@@ -79,4 +79,7 @@ export default {
   transition: 0.3s;
   stroke: #292f36;
 }
+.banner__image {
+  max-width: 100%;
+}
 </style>

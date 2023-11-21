@@ -1,7 +1,6 @@
 <template>
   <div class="slider-item">
     <img :src="image.src" class="slider-image" />
-    <img class="slider-image__zoom" src="../assets/zoom-icon.png" alt="zoom-icon" />
   </div>
 </template>
 
@@ -29,11 +28,6 @@ export default {
   }
   &-item {
     position: relative;
-  }
-  &-image__zoom {
-    position: absolute;
-    cursor: pointer;
-    transition: 1s;
   }
 }
 </style>

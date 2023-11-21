@@ -6,7 +6,7 @@
       <slot name="paragraphs" />
       <div class="blog__data-arrow-box">
         <p class="blog__date">{{ article.date }}</p>
-        <router-link to="/blog" class="blog__arrowbox">
+        <router-link to="/blog-details" class="blog__arrowbox">
           <svg
             width="9"
             height="16"

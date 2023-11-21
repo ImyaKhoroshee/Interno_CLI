@@ -1,15 +1,14 @@
 <template>
-  <button class="button"><slot /></button>
+  <span class="nav-icon-line"></span>
 </template>
 
 <script>
 export default {
-  name: "Button",
+  name: "Burger",
   props: {},
   data() {
     return {};
   },
 };
 </script>
-
-<style scoped lang="scss"></style>
+<style scoped></style>

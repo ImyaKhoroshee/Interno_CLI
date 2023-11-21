@@ -35,9 +35,6 @@
           />
         </ProjectCard>
       </article>
-      <div class="pagination-box">
-        <Pagination />
-      </div>
     </section>
   </main>
 </template>
@@ -47,7 +44,6 @@ import IntroBackground from "@/components/IntroBackground.vue";
 import IntroText from "@/components/IntroText.vue";
 import Button from "@/components/Button.vue";
 import ProjectCard from "@/components/ProjectCard.vue";
-import Pagination from "@/components/Pagination.vue";
 
 export default {
   name: "ProjectView",
@@ -57,7 +53,6 @@ export default {
     IntroText,
     Button,
     ProjectCard,
-    Pagination,
   },
   data() {
     return {
@@ -653,5 +648,38 @@ export default {
   gap: 20px;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 1024px) {
+  .button {
+    width: 183px;
+  }
+  .buttons-box {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .project-cards-box {
+    height: 100%;
+    align-items: center;
+  }
+}
+@media (max-width: 767px) {
+  .buttons-box {
+    display: flex;
+    flex-direction: column;
+    width: 219px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .button {
+    width: 219px;
+  }
+}
+.project-content {
+  padding-top: 50px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.intro-project__text {
+  text-align: center;
 }
 </style>

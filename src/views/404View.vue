@@ -73,4 +73,25 @@ export default {
   letter-spacing: 0.35px;
   line-height: 51px;
 }
+@media (max-width: 1439px) {
+  .banner-error {
+    padding: 0;
+  }
+  .banner-error :deep(.banner-box) {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .banner-error :deep(.banner__image) {
+    display: none;
+  }
+  .banner-error :deep(.banner__text) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
 </style>

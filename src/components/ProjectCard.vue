@@ -16,7 +16,7 @@
           <li class="projects__card-list-item">{{ project.field }}</li>
         </ul>
       </div>
-      <router-link to="link" class="projects__card-arrow-box">
+      <router-link to="/project-details" class="projects__card-arrow-box">
         <svg
           class="projects__card-arrow"
           width="10"

@@ -109,4 +109,29 @@ export default {
 .footer__left :deep(.logo__icon) {
   margin-top: 10px;
 }
+
+@media (max-width: 767px) {
+  .footer {
+    padding: 16px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .footer__left :deep(.logo) {
+    justify-content: center;
+  }
+  .footer__media {
+    justify-content: center;
+  }
+  .footer__middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer__absent-service {
+    display: none;
+  }
+}
 </style>

@@ -221,9 +221,48 @@ export default {
   background: #f4f0ec;
   border: none;
   &-active {
-  background: #292f36;
-  color: #ffffff;
+    background: #292f36;
+    color: #ffffff;
+  }
 }
+@media (max-width: 1280px) {
+  .blog-details__box {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 }
-
+@media (max-width: 1024px) {
+  .blog-details {
+    max-width: 733px;
+  }
+}
+@media (max-width: 425px) {
+  .blog-details {
+    max-width: 380px;
+  }
+  .blog-details__box :deep(.blog-details__date-box) {
+    gap: 20px;
+  }
+  .blog-details__box :deep(.blog-details__quote-content) {
+    padding: 20px 30px;
+  }
+  .blog-details__box :deep(.blog-details__title) {
+    text-align: center;
+  }
+}
+@media (max-width: 424px) {
+  .blog-details__aside {
+    align-items: center;
+  }
+  .blog-details__buttons {
+    align-items: center;
+    justify-content: center;
+  }
+  .blog-details {
+    max-width: 315px;
+  }
+  .blog-details__box :deep(.blog-details__date-box) {
+    flex-direction: column;
+  }
+}
 </style>
