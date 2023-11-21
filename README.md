@@ -43,4 +43,4 @@
 
 ### Готовая работа
 
-[Посмотреть работу]()
+[Посмотреть работу](https://github.com/ImyaKhoroshee/Interno_CLI)
